@@ -15,8 +15,11 @@ def delta_phi(ticks: int, prev_ticks: int, resolution: int) -> Tuple[float, floa
     """
 
     # TODO: these are random values, you have to implement your own solution in here
-    ticks = prev_ticks + int(np.random.uniform(0, 10))
-    dphi = np.random.random()
+    N_tot = 135 # total number of ticks per revolution
+    alpha = 2 * np.pi / N_tot # wheel rotation per tick in radians
+    delta_ticks=ticks-prev_ticks
+    ticks = prev_ticks + delta_ticks
+    dphi = delta_ticks*alpha
     # ---
     return dphi, ticks
 
